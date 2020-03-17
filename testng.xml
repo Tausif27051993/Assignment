@@ -2,7 +2,7 @@
 <suite name="Suite" parallel="false">
   <test name="Test">
     <classes>
-      <class name="com.tripadvisor.mahindratest.ClubMahindraTest"/>
+      <class name="com.tripadvisor.mahindratest.TripAdvisorTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
