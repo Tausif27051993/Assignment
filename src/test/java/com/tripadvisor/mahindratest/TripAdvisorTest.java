@@ -19,7 +19,7 @@ import com.tripadvisor.mahindra.utils.BrowserUtilties;
 
 
 public class TripAdvisorTest {
-	
+
 	public static WebDriver driver = null;
 	static final Logger logger = Logger.getLogger(TripAdvisorTest.class);
 	String amazonPrice = null;
@@ -42,52 +42,56 @@ public class TripAdvisorTest {
 	public void runAmazonTest(String keywords,String title,String comments,String url) throws Throwable {
 		MahindraSearchActions mahindraSearchActions = PageFactory
 				.initElements(driver, MahindraSearchActions.class);
-		
+
 		MahindraWriteReviewActions mahindraWriteReviewActions = PageFactory
 				.initElements(driver, MahindraWriteReviewActions.class);
-		
+
 		BrowserUtilties browserUtilties = PageFactory
 				.initElements(driver, BrowserUtilties.class);
-		
+
 		//Load URl
 		mahindraSearchActions.loadURL(url, driver);
 		//Search and enter in search bar
 		mahindraSearchActions.searchForTitleAndEnterText(keywords, driver);
 		//Scroll to write review text
 		mahindraSearchActions.javaScriptScroll(driver);
+		//Wait for sometime
+		browserUtilties.idealwait();
 		//click on write a review buttton
 		mahindraSearchActions.clickButton(driver);
+		//Wait for sometime
+		browserUtilties.idealwait();
 		//switch to new tab
 		mahindraSearchActions.switchTab(driver);
-	  
+
 		//width of the entire gif image for reviews
 		int logoW = mahindraWriteReviewActions.returnWidth(); 
-		
+
 		//Enter first review
 		mahindraWriteReviewActions.loopFirstElement(logoW, driver);
-		
+
 		//Enter title
 		mahindraWriteReviewActions.addTitle(driver,title);
 		//Enter Review
-		mahindraWriteReviewActions.addReview(driver,comments);
-		 
+		mahindraWriteReviewActions.addReview(driver,comments+comments+comments);
+
 		//Other 3 dynamic review star ratings
 		List<WebElement> list = mahindraWriteReviewActions.returnRequiredXpaths(driver);
 		Iterator<WebElement> it = list.iterator();
-		
+
 		//Loop and hover
 		while(it.hasNext())
 		{
-			 mahindraWriteReviewActions.loopWebElements(it.next(),logoW, driver);
+			mahindraWriteReviewActions.loopWebElements(it.next(),logoW, driver);
 		}
 
 		//click on checkbox
 		mahindraWriteReviewActions.clickCheckBox(driver);
-		
+
 		//Wait for sometime
 		browserUtilties.idealwait();
 	}
-	
+
 	@AfterTest
 	public void cleanUp()
 	{

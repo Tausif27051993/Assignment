@@ -55,4 +55,9 @@ public class BrowserUtilties {
 		elementToClick.click();
 
 	}
+	
+	public void longWait() throws InterruptedException
+	{
+		Thread.sleep(15000);
+	}
 }

@@ -37,12 +37,16 @@ public class MahindraSearchActions extends TripAdvisorHomePageObjects {
 			Reporter
 			.log("Checking for the Search Bar of TripAdvisor Home Page");
 
+			//Scroll for search box to be visible
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("window.scrollBy(0,250)", "");
+			
 			//Wait for search bar to load
 			browserUtility.waitForPageToLoad(searchTextBox, driver);
 
 			//Enter the value
 			browserUtility.enterValueTextBox(searchTextBox,title,driver);
-
+			
 			//Wait for search bar to load
 			browserUtility.idealwait();
 			
@@ -99,7 +103,7 @@ public class MahindraSearchActions extends TripAdvisorHomePageObjects {
 			logger.info("Connected to switch tab, to new tab");
 			Reporter
 			.log("Connected to switch tab to new tab");
-			js.executeScript("arguments[0].scrollIntoView();",elem);	
+			js.executeScript("arguments[0].scrollIntoView(true);",elem);	
 			browserUtility.idealwait();
 		} catch (Exception e) {
 			Reporter
@@ -116,7 +120,6 @@ public class MahindraSearchActions extends TripAdvisorHomePageObjects {
 	public void clickButton(WebDriver driver)
 	{
 		try {
-			javaScriptScroll(writeReviewButton,driver);
 			browserUtility.clickElement(writeReviewButton, driver);
 		} catch (Exception e) {
 		}

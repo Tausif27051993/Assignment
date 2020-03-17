@@ -3,8 +3,10 @@ package com.tripadvisor.mahindra.helper;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -18,6 +20,7 @@ public class BrowserInstantiator {
 	 */
 	public static WebDriver returnWebDriver() {
 		WebDriver driver= null;
+		System.setProperty("webdriver.chrome.silentOutput", "true");
 		try {
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();

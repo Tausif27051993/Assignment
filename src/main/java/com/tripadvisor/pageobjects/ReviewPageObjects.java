@@ -25,7 +25,7 @@ public class ReviewPageObjects {
 	@FindBy(how=How.XPATH, using ="//textarea[@id='ReviewText']")
 	public  WebElement reviewTextArea;
 
-	@FindBy(how=How.CSS, using ="\"#noFraud\"")
+	@FindBy(how=How.CSS, using ="#noFraud")
 	public  WebElement checkBox;
 	
 	@FindBy(how=How.XPATH, using ="//div[@class='easyClear bigRatingParent']//following-sibling::span[@id='bubble_rating']")

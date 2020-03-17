@@ -72,7 +72,7 @@ public class MahindraWriteReviewActions extends ReviewPageObjects{
 			logger.info("Connected to switch tab, to new tab");
 			Reporter
 			.log("Connected to switch tab to new tab");
-			js.executeScript("arguments[0].scrollIntoView();",element);	
+			js.executeScript("arguments[0].scrollIntoView(true);",element);	
 			browserUtility.idealwait();
 		} catch (Exception e) {
 			Reporter
