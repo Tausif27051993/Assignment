@@ -53,6 +53,8 @@ public class TripAdvisorTest {
 		mahindraSearchActions.loadURL(url, driver);
 		//Search and enter in search bar
 		mahindraSearchActions.searchForTitleAndEnterText(keywords, driver);
+		//Wait for sometime
+		browserUtilties.idealwait();
 		//Scroll to write review text
 		mahindraSearchActions.javaScriptScroll(driver);
 		//Wait for sometime
@@ -63,18 +65,14 @@ public class TripAdvisorTest {
 		browserUtilties.idealwait();
 		//switch to new tab
 		mahindraSearchActions.switchTab(driver);
-
 		//width of the entire gif image for reviews
 		int logoW = mahindraWriteReviewActions.returnWidth(); 
-
 		//Enter first review
 		mahindraWriteReviewActions.loopFirstElement(logoW, driver);
-
 		//Enter title
 		mahindraWriteReviewActions.addTitle(driver,title);
 		//Enter Review
 		mahindraWriteReviewActions.addReview(driver,comments+comments+comments);
-
 		//Other 3 dynamic review star ratings
 		List<WebElement> list = mahindraWriteReviewActions.returnRequiredXpaths(driver);
 		Iterator<WebElement> it = list.iterator();

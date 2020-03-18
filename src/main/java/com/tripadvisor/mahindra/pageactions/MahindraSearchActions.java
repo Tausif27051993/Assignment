@@ -48,7 +48,7 @@ public class MahindraSearchActions extends TripAdvisorHomePageObjects {
 			browserUtility.enterValueTextBox(searchTextBox,title,driver);
 			
 			//Wait for search bar to load
-			browserUtility.idealwait();
+			browserUtility.longWait();
 			
 			//Click on search icon
 			browserUtility.clickElement(firstSearchElement,driver);
