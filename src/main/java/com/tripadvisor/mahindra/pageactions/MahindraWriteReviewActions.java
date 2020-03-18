@@ -92,7 +92,7 @@ public class MahindraWriteReviewActions extends ReviewPageObjects{
 		int actualX = -72;
 		for(int i=0;i<5;i++) {
 			new Actions(driver).moveToElement(element,actualX,0).click().build().perform();
-			fluentWait(firstGifButton,driver);
+			fluentWait(element,driver);
 			actualX=actualX+temp;
 		}
 	}
